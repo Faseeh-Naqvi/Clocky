@@ -10,3 +10,4 @@ Features:
 
 to be added:
 - sunrise & sunset timings for the day
+    - utilising [this API](https://sunrise-sunset.org/api)https://sunrise-sunset.org/api
