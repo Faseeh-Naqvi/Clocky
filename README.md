@@ -1,6 +1,6 @@
 # Clocky
 
-Check it out!:
+Check it out:
 https://faseeh-naqvi.github.io/Clocky/
 
 
