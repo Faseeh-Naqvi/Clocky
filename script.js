@@ -70,6 +70,8 @@ function updateBackgroundColor() {
 
     if(timeOfDay>=1120|| timeOfDay<=400){ // make sure that text is readable.
         document.body.style.backgroundColor = backgroundColor;
+        document.getElementById('time').style.color ="#FFFFFF";
+        
     }
     else{
         document.body.style.backgroundColor = backgroundColor;
