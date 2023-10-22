@@ -1,0 +1,23 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+
+.digitalClock{
+    background-color: rgb(2, 32, 4);
+    padding: 20px;
+    border: 2px solid ;
+    border-color: aquamarine;
+    border-radius: 20px;
+    text-align: center;
+    
+}
+#time{
+    font-size: 70px;
+    text-decoration: dashed red 20px;
+    font-family: 'Courier New', Courier, monospace;
+}

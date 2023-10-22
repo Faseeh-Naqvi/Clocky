@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    min-height: 100vh;
+    margin: 0; /* Remove default margin */
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 100px;
+    margin: 0; /* Remove default margin */
+}
+
+#proceed-container {
+    text-align: center;
+    margin-top: 20px; /* Add some spacing between the header and the button */
+}
+
+.buttonLink {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #043e52; /* Background color of the button */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline on hover */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px;
+}
