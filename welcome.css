@@ -5,13 +5,13 @@ body {
     justify-content: center; /* Center items vertically */
     min-height: 100vh;
     margin: 0;
-    background-color: lightcoral;
+    background-color: rgb(255, 184, 51);
 }
 
 h1 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 100px;
-    margin-top: 10;
+    margin-top: 80px;
     color: whitesmoke;
 }
 
@@ -30,7 +30,7 @@ h1 {
     border: 2px solid;
     
     border-radius: 5px;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 h3{
