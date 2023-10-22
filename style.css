@@ -11,13 +11,12 @@ body{
     background-color: rgb(2, 32, 4);
     padding: 20px;
     border: 2px solid ;
-    border-color: aquamarine;
+    border-color: rgb(0, 134, 90);
     border-radius: 20px;
     text-align: center;
     
 }
 #time{
-    font-size: 70px;
-    text-decoration: dashed red 20px;
+    font-size: 100px;
     font-family: 'Courier New', Courier, monospace;
 }

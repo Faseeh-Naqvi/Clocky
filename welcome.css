@@ -1,30 +1,38 @@
 body {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
     min-height: 100vh;
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    background-color: lightcoral;
 }
 
 h1 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 100px;
-    margin: 0; /* Remove default margin */
+    margin-top: 10;
+    color: whitesmoke;
 }
 
 #proceed-container {
     text-align: center;
-    margin-top: 20px; /* Add some spacing between the header and the button */
+    margin-top: 200px; /* Add spacing between the header and button */
+    margin-bottom: auto; /* Push the button to the bottom */
 }
 
 .buttonLink {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #043e52; /* Background color of the button */
-    color: white; /* Text color */
-    text-decoration: none; /* Remove underline on hover */
-    border: none; /* Remove button border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px;
+    background-color: #e2ab34;
+    color: white;
+    text-decoration: none;
+    border: 2px solid;
+    
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+h3{
+    font-family: 'Times New Roman', Times, serif;
 }
