@@ -19,11 +19,11 @@ function updateBackgroundColor() {
     const hours = now.getHours();
     const minutes = now.getMinutes();
     let backgroundColor = '#000000';
-    let iamge="images/sun.png";
+    let image="images/sun.png";
 
     // Calculate the time of day in minutes
     const timeOfDay = hours * 60 + minutes;
-    //const timeOfDay =1500; ->for testing
+    //const timeOfDay = 300; //For testing
     console.log("The time in minutes is: ",timeOfDay);
 
     const colors = [
@@ -35,7 +35,7 @@ function updateBackgroundColor() {
         { time: 960, color: '#ffaa90' },     // Early Afternoon
         { time: 1020, color: '#ff993d' },    // Late Afternoon
         { time: 1080, color: '#e16a3d' },    // Evening
-        { time: 1320, color: '#0f395d' },    // Dusk
+        { time: 1120, color: '#0f395d' },    // Dusk
         { time: 1380, color: '#043e52' },    // Nightfall
         { time: 1440, color: '#043e52' },    // Night
     ];
@@ -44,8 +44,8 @@ function updateBackgroundColor() {
         {time: 250,image: "images/sunSetRise.png"},
         {time: 400,image: "images/sun.png"},
         {time: 1080,image: "images/sunSetRise.png"},
-        {time: 1380,image: "images/night.png"}
-    ]
+        {time: 1140,image: "images/night.png"},
+    ];
 
     for (let i = 0; i < colors.length - 1; i++) {
         if (timeOfDay >= colors[i].time && timeOfDay < colors[i + 1].time) {
@@ -55,9 +55,14 @@ function updateBackgroundColor() {
         }
     }
 
-    for(let i =0; i< images.length -1;i++){
-        if(timeOfDay>=images[i].time&& timeOfDay< images[i+1].time){
+    for (let i = 0; i < images.length - 1; i++) {
+        if(timeOfDay>= images[images.length -1].time){
             image = images[i].image;
+            break;
+        }
+        if (timeOfDay >= images[i].time && timeOfDay < images[i + 1].time) {
+            image = images[i].image;
+            break;
         }
     }
     
