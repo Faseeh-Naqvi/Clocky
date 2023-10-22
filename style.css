@@ -12,10 +12,10 @@ body{
 }
 
 .digitalClock{
-    background-color: rgb(2, 32, 4);
+    background-color: rgba(0, 83, 6, 0.8);
     padding: 20px;
     border: 2px solid ;
-    border-color: rgb(0, 134, 90);
+    border-color: rgb(255, 255, 255);
     border-radius: 20px;
     text-align: center;
     
