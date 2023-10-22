@@ -7,6 +7,10 @@ body{
     
 }
 
+.container{
+    text-align: center;
+}
+
 .digitalClock{
     background-color: rgb(2, 32, 4);
     padding: 20px;
@@ -19,4 +23,13 @@ body{
 #time{
     font-size: 100px;
     font-family: 'Courier New', Courier, monospace;
+}
+.imgContainer{
+    margin-bottom: 100px;
+    
+}
+#image{
+    
+    max-width: 500px;
+    
 }

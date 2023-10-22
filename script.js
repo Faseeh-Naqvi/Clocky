@@ -18,12 +18,13 @@ function updateBackgroundColor() {
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
-    let backgroundColor = '#043e52';
+    let backgroundColor = '#000000';
+    let iamge="images/sun.png";
 
     // Calculate the time of day in minutes
     const timeOfDay = hours * 60 + minutes;
     //const timeOfDay =1500; ->for testing
-    
+    console.log("The time in minutes is: ",timeOfDay);
 
     const colors = [
         { time: 0, color: '#043e52' },       // Night
@@ -38,6 +39,13 @@ function updateBackgroundColor() {
         { time: 1380, color: '#043e52' },    // Nightfall
         { time: 1440, color: '#043e52' },    // Night
     ];
+    const images =[
+        {time: 0,image: "images/night.png"},
+        {time: 250,image: "images/sunSetRise.png"},
+        {time: 400,image: "images/sun.png"},
+        {time: 1080,image: "images/sunSetRise.png"},
+        {time: 1380,image: "images/night.png"}
+    ]
 
     for (let i = 0; i < colors.length - 1; i++) {
         if (timeOfDay >= colors[i].time && timeOfDay < colors[i + 1].time) {
@@ -47,9 +55,21 @@ function updateBackgroundColor() {
         }
     }
 
-    document.body.style.backgroundColor = backgroundColor;
-    document.getElementById('time').style.color =backgroundColor;
-    //if(timeOfDay>=1080|| timeOfDay==0)
+    for(let i =0; i< images.length -1;i++){
+        if(timeOfDay>=images[i].time&& timeOfDay< images[i+1].time){
+            image = images[i].image;
+        }
+    }
+    
+    document.getElementById("image").src = image;
+
+    if(timeOfDay>=1200|| timeOfDay<=400){ // make sure that text is readable.
+        document.body.style.backgroundColor = backgroundColor;
+    }
+    else{
+        document.body.style.backgroundColor = backgroundColor;
+        document.getElementById('time').style.color =backgroundColor;
+    }
 }
 
 function interpolateColor(color1, color2, percent) {
@@ -69,3 +89,17 @@ function interpolateColor(color1, color2, percent) {
 }
 
 setInterval(updateBackgroundColor, 1000);
+
+
+////for sunset & sunrise://
+
+// fetch(`https://api.sunrise-sunset.org/json?lat=42.58&lng=-81.13&date=2023-10-22`)
+//     .then(response => response.json())
+//     .then(data => {
+//         const sunriseTime = data.results.sunrise;
+//         const sunsetTime = data.results.sunset;
+
+//         console.log(`Sunrise: ${sunriseTime}`);
+//         console.log(`Sunset: ${sunsetTime}`);
+//     })
+//     .catch(error => console.error(error));
