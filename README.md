@@ -28,6 +28,9 @@ https://faseeh-naqvi.github.io/Clocky/
 ### Midday
 ![1698076609998](https://github.com/Faseeh-Naqvi/Clocky/assets/94808336/349cc5f9-b380-4c5e-9696-8cb05ecaeeb6)
 
+### Afternoon
+![image](https://github.com/Faseeh-Naqvi/Clocky/assets/94808336/6ff8c40c-9653-4228-8706-c27cab0e411b)
+
 ### Night
 ![1698072904375](https://github.com/Faseeh-Naqvi/Clocky/assets/94808336/fe7f7e90-3684-49a7-91d9-76be71856627)
 
