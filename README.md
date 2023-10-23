@@ -10,8 +10,16 @@ https://faseeh-naqvi.github.io/Clocky/
 - Header image changes during different parts of the day. (Custom made graphics)
 
 ## To be added:
-- sunrise & sunset timings for the day
-    - utilising [the Sunrise Sunset API](https://sunrise-sunset.org/api)
+
+- Focused mode & extra mode
+    - can be changed with a toggle or menu
+    - fullscreen button
+      Extra mode:
+          - todays weather (thanks Sathun)
+          - sunrise & sunset timings for the day
+              - utilising [the Sunrise Sunset API](https://sunrise-sunset.org/api)
+          - More backgrounds
+          
 
 ## Images
 ### Morning
