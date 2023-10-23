@@ -6,8 +6,13 @@ function updateDigitalClock() {
 
     const timeElement = document.getElementById('time');
 
-    if (hours > 12) {
-        timeElement.textContent = `${hours - 12}:${minutes}:${seconds} PM`;
+    if (hours => 12) {
+        if(hours == 12){
+            timeElement.textContent = `${hours}:${minutes}:${seconds} PM`;
+        }
+        else{
+            timeElement.textContent = `${hours - 12}:${minutes}:${seconds} PM`;
+        }
     } else {
         timeElement.textContent = `${hours}:${minutes}:${seconds} AM`;
     }
@@ -24,7 +29,7 @@ function updateBackgroundColor() {
     // Calculate the time of day in minutes
     const timeOfDay = hours * 60 + minutes;
     //const timeOfDay = 300; //For testing
-    console.log("The time in minutes is: ",timeOfDay);
+    //console.log("The time in minutes is: ",timeOfDay);
 
     const colors = [
         { time: 0, color: '#043e52' },       // Night
