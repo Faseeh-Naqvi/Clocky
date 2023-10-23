@@ -12,12 +12,12 @@ https://faseeh-naqvi.github.io/Clocky/
 ## To be added:
 
 - Focused mode & extra mode
-    - can be changed with a toggle or menu
-    - fullscreen button
+    - Can be changed with a toggle or menu
+    - Fullscreen button
     - Extra mode:
-        - todays weather (thanks Sathun)
-        - sunrise & sunset timings for the day
-            - utilising [the Sunrise Sunset API](https://sunrise-sunset.org/api)
+        - Todays weather (thanks Sathun)
+        - Sunrise & Sunset timings for the day
+            - Utilising [the Sunrise Sunset API](https://sunrise-sunset.org/api)
     - More backgrounds
           
 
