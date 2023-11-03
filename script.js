@@ -7,21 +7,41 @@ let morningTime = 0;
 let noonTime = 0;
 let duskTime = 0;
 
-////for sunset & sunrise://
+//Get user Location//
+let long=0;
+let lat=0;
 
-fetch(`https://api.sunrisesunset.io/json?lat=43.651070&lng=-79.347015`)//location needed
-    .then(response => response.json())
-    .then(data => {
-        sunriseTime = findTime(data.results.sunrise);
-        sunsetTime = findTime(data.results.sunset);
-        noonTime = findTime(data.results.solar_noon);//noon,midday
-        firstLightTime = findTime(data.results.first_light)//first light
-        lastLightTime = findTime(data.results.last_light)//last light
-        dawn = findTime(data.results.dawn)//dawn
-        dusk = findTime(data.results.dusk)//dusk   
-    })
-    .catch(error => console.error(error));
+function getLocation() {
+    if (navigator.geolocation) {
+        alert("Hi! We need your location to get sunrise and sunset timings.");
+        navigator.geolocation.getCurrentPosition(function(position) {
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
 
+            // Once you have lat and long, make the fetch request for sunrise and sunset
+            fetch(`https://api.sunrisesunset.io/json?lat=${lat}&lng=${long}`)
+                .then(response => response.json())
+                .then(data => {
+                    sunriseTime = findTime(data.results.sunrise);
+                    sunsetTime = findTime(data.results.sunset);
+                    noonTime = findTime(data.results.solar_noon); // noon, midday
+                    firstLightTime = findTime(data.results.first_light); // first light
+                    lastLightTime = findTime(data.results.last_light); // last light
+                    dawnTime = findTime(data.results.dawn); // dawn
+                    duskTime = findTime(data.results.dusk); // dusk
+                })
+                .catch(error => console.error(error));
+        }, function(error) {
+            switch (error.code) {
+                // Handle geolocation-related errors
+            }
+        });
+    } else {
+        alert("Geolocation is not supported by this browser :(");
+    }
+}
+
+getLocation();
 
 function updateDigitalClock() {
     const now = new Date();
@@ -74,11 +94,11 @@ function updateBackgroundColor() {
     
     
     const images = [
-        { time: sunriseTime, image: "images/night.png" },
-        { time: sunriseTime + 250, image: "images/sunSetRise.png" },
+        { time: 0, image: "images/night.png" },
+        { time: dawnTime, image: "images/sunSetRise.png" },
         { time: sunriseTime + 400, image: "images/sun.png" },
         { time: sunsetTime, image: "images/sunSetRise.png" },
-        { time: sunsetTime + 60, image: "images/night.png" },
+        { time: duskTime, image: "images/night.png" },
     ];
 
     for (let i = 0; i < colors.length - 1; i++) {
