@@ -123,7 +123,7 @@ function updateBackgroundColor() {
     
     document.getElementById("image").src = image;
 
-    if(timeOfDay>=1120|| timeOfDay<=400){ // make sure that text is readable.
+    if(timeOfDay>=sunsetTime|| timeOfDay<=firstLightTime){ // make sure that text is readable.
         document.body.style.backgroundColor = backgroundColor;
         document.getElementById('time').style.color ="#FFFFFF";
         
