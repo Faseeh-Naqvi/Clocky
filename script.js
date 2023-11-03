@@ -1,3 +1,28 @@
+//global:
+let sunriseTime=0;
+let sunsetTime=0;
+let firstLightTime = 0;
+let dawnTime = 0;
+let morningTime = 0;
+let noonTime = 0;
+let duskTime = 0;
+
+////for sunset & sunrise://
+
+fetch(`https://api.sunrisesunset.io/json?lat=43.651070&lng=-79.347015`)//location needed
+    .then(response => response.json())
+    .then(data => {
+        sunriseTime = findTime(data.results.sunrise);
+        sunsetTime = findTime(data.results.sunset);
+        noonTime = findTime(data.results.solar_noon);//noon,midday
+        firstLightTime = findTime(data.results.first_light)//first light
+        lastLightTime = findTime(data.results.last_light)//last light
+        dawn = findTime(data.results.dawn)//dawn
+        dusk = findTime(data.results.dusk)//dusk   
+    })
+    .catch(error => console.error(error));
+
+
 function updateDigitalClock() {
     const now = new Date();
     const hours = now.getHours();
@@ -6,7 +31,7 @@ function updateDigitalClock() {
 
     const timeElement = document.getElementById('time');
 
-    if (hours => 12) {
+    if (hours >= 12) {
         if(hours == 12){
             timeElement.textContent = `${hours}:${minutes}:${seconds} PM`;
         }
@@ -19,6 +44,8 @@ function updateDigitalClock() {
 }
 
 setInterval(updateDigitalClock, 1000);
+
+
 function updateBackgroundColor() {
     const now = new Date();
     const hours = now.getHours();
@@ -28,32 +55,35 @@ function updateBackgroundColor() {
 
     // Calculate the time of day in minutes
     const timeOfDay = hours * 60 + minutes;
-    //const timeOfDay = 300; //For testing
+    
     //console.log("The time in minutes is: ",timeOfDay);
-
+    
     const colors = [
-        { time: 0, color: '#043e52' },       // Night
-        { time: 300, color: '#0f395d' },     // Pre-dawn
-        { time: 360, color: '#1c3c6d' },     // Early Morning
-        { time: 660, color: '#ffaa90' },     // Mid-Morning
-        { time: 720, color: '#ffa45d' },     // Late Morning
-        { time: 960, color: '#ffaa90' },     // Early Afternoon
-        { time: 1020, color: '#ff993d' },    // Late Afternoon
-        { time: 1080, color: '#e16a3d' },    // Evening
-        { time: 1120, color: '#0f395d' },    // Dusk
-        { time: 1380, color: '#043e52' },    // Nightfall
-        { time: 1440, color: '#043e52' },    // Night
+        { time: 0, color: '#03303f' },       // Night
+        { time: firstLightTime, color: '#0f395d' },     // Pre-dawn
+        { time: dawnTime, color: '#0E65A3' },     // Early Morning
+        { time: sunriseTime, color: '#ffcb8f' },     // Mid-Morning
+        { time: sunriseTime+150, color: '#ffa45d' },     // Late Morning
+        { time: noonTime, color: '#f8a054' },     // Early Afternoon
+        { time: noonTime+30, color: '#ff993d' },    // Late Afternoon
+        { time: sunsetTime, color: '#e16a3d' },    // Evening
+        { time: duskTime, color: '#043e52' },    // Dusk
+        { time: duskTime+60, color: '#0f395d' },    // Nightfall
+        { time: 1440, color: '#03303f' },    // Night
     ];
-    const images =[
-        {time: 0,image: "images/night.png"},
-        {time: 250,image: "images/sunSetRise.png"},
-        {time: 400,image: "images/sun.png"},
-        {time: 1080,image: "images/sunSetRise.png"},
-        {time: 1140,image: "images/night.png"},
+    
+    
+    const images = [
+        { time: sunriseTime, image: "images/night.png" },
+        { time: sunriseTime + 250, image: "images/sunSetRise.png" },
+        { time: sunriseTime + 400, image: "images/sun.png" },
+        { time: sunsetTime, image: "images/sunSetRise.png" },
+        { time: sunsetTime + 60, image: "images/night.png" },
     ];
 
     for (let i = 0; i < colors.length - 1; i++) {
         if (timeOfDay >= colors[i].time && timeOfDay < colors[i + 1].time) {
+            console.log(i);
             const percent = (timeOfDay - colors[i].time) / (colors[i + 1].time - colors[i].time);
             backgroundColor = interpolateColor(colors[i].color, colors[i + 1].color, percent);
             break;
@@ -103,15 +133,29 @@ function interpolateColor(color1, color2, percent) {
 setInterval(updateBackgroundColor, 1000);
 
 
-////for sunset & sunrise://
 
-// fetch(`https://api.sunrise-sunset.org/json?lat=42.58&lng=-81.13&date=2023-10-22`)
-//     .then(response => response.json())
-//     .then(data => {
-//         const sunriseTime = data.results.sunrise;
-//         const sunsetTime = data.results.sunset;
 
-//         console.log(`Sunrise: ${sunriseTime}`);
-//         console.log(`Sunset: ${sunsetTime}`);
-//     })
-//     .catch(error => console.error(error));
+
+function findTime(timeStr) {
+    const timePieces = timeStr.split(' ');
+    
+    if (timePieces.length === 2) {
+        const timeWithoutPeriod = timePieces[0];
+        const period = timePieces[1];
+
+        const timeParts = timeWithoutPeriod.split(':');
+        if (timeParts.length === 3) {
+            let hours = parseInt(timeParts[0]);
+            const minutes = parseInt(timeParts[1]);
+            
+
+            if (period === "PM" && hours < 12) {
+                hours += 12;
+            } else if (period === "AM" && hours === 12) {
+                hours = 0;
+            }
+
+            return hours * 60 + minutes;
+        }
+    }
+}
