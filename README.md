@@ -7,6 +7,8 @@ https://faseeh-naqvi.github.io/Clocky/
 ## Features:
 - 12 Hour [Am/Pm] clock
 - Dynamically changing background depending on the hour.
+    - Based on user location and sunrise/sunset timings.
+        - Utilising [the Sunrise Sunset API](https://sunrisesunset.io/api/)
 - Header image changes during different parts of the day. (Custom made graphics)
 
 ## To be added:
@@ -17,7 +19,6 @@ https://faseeh-naqvi.github.io/Clocky/
     - Extra mode:
         - Todays weather (thanks Sathun)
         - Sunrise & Sunset timings for the day
-            - Utilising [the Sunrise Sunset API](https://sunrise-sunset.org/api)
     - More backgrounds
           
 
