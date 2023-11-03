@@ -96,7 +96,7 @@ function updateBackgroundColor() {
     const images = [
         { time: 0, image: "images/night.png" },
         { time: dawnTime, image: "images/sunSetRise.png" },
-        { time: sunriseTime + 400, image: "images/sun.png" },
+        { time: sunriseTime, image: "images/sun.png" },
         { time: sunsetTime, image: "images/sunSetRise.png" },
         { time: duskTime, image: "images/night.png" },
     ];

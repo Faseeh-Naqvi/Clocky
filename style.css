@@ -33,3 +33,24 @@ body{
     max-width: 500px;
     
 }
+.bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    
+    text-align: right;
+    font-size: 12px;
+}
+
+#credits {
+    color: rgba(255, 255, 255, 0.281);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+#credits a{
+    color: rgba(255, 255, 255, 0.459);
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
